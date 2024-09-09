@@ -4,7 +4,7 @@ Este projeto responsivo de perguntas e respostas interativas, foi desenvolvido c
 
 ![Print versão desktop](https://github.com/QuiLion7/desafio-vaga-estagio-target/blob/main/app/images/desktop.png?raw=true)
 ![Print versão tablet](https://github.com/QuiLion7/desafio-vaga-estagio-target/blob/main/app/images/tablet.png?raw=true)
-![Print versão mobile](https://github.com/QuiLion7/desafio-vaga-estagio-target/blob/main/app/images/tablet.png?raw=true)
+![Print versão mobile](https://github.com/QuiLion7/desafio-vaga-estagio-target/blob/main/app/images/mobile.png?raw=true)
 
 ## Funcionalidades
 
