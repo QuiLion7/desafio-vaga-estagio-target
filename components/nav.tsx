@@ -30,7 +30,7 @@ const navigationLinks = [
 
 const Nav = () => {
   return (
-    <nav className="fixed bottom-1 z-50 flex w-full h-24 items-end justify-center overflow-hidden px-2 lg:bottom-8">
+    <nav className="fixed bottom-2 z-50 flex w-full h-24 items-end justify-center overflow-hidden px-5 sm:px-2 lg:bottom-8">
       <div className="flex h-[50px] sm:h-[55px] w-full max-w-[380px] items-center justify-between rounded-full bg-primary p-2 text-2xl backdrop-blur-2xl">
         {navigationLinks.map((link, index) => (
           <TooltipProvider key={index} delayDuration={50}>
