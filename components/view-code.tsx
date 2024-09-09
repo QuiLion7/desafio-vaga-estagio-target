@@ -18,7 +18,7 @@ export default function ViewCode({ codeString }: { codeString: string }) {
       viewport={{ once: false, amount: 0.3 }}
       className="w-full bg-[#3a404d] rounded-md overflow-hidden"
     >
-      <div className="flex justify-between px-4 text-xs items-center text-primary-foreground">
+      <div className="flex justify-between px-4 items-center text-primary-foreground text-sm tracking-wide md:text-base lg:text-lg">
         <p className="text-sm">Exemplo</p>
         {copy ? (
           <Button
@@ -31,7 +31,7 @@ export default function ViewCode({ codeString }: { codeString: string }) {
         ) : (
           <Button
             variant="icon"
-            className="inline-flex items-center gap-2"
+            className="inline-flex items-center gap-2 text-sm tracking-wide md:text-base lg:text-lg"
             onClick={() => {
               navigator.clipboard.writeText(codeString);
               setCopy(true);
