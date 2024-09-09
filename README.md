@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Desafios de Estágio
 
-## Getting Started
+Este projeto responsivo de perguntas e respostas interativas, foi desenvolvido como parte de uma seleção para vaga de estágio.
 
-First, run the development server:
+![Print versão desktop]()
+![Print versão tablet]()
+![Print versão mobile]()
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Funcionalidades
+
+- **Navegação dinâmica** com transições suaves entre seções.
+- **Animações interativas** para tornar a experiência do usuário mais envolvente.
+- **Componentes lógicos interativos** como Fibonacci, Contagem, Soma, Lógica e Interruptor.
+- **Formulário de Contato** com validação e integração ao WhatsApp para envio de mensagens.
+
+## Stack utilizada
+
+- **Next.js** - Framework de React para desenvolvimento full-stack
+- **TypeScript** - Superset de JavaScript que adiciona tipagem estática
+- **TailwindCSS** - Framework de CSS para estilização rápida e responsiva
+- **Framer Motion** - Biblioteca para animações suaves em React
+- **React Hook Form** - Gerenciamento de formulários em React
+- **Zod** - Validação de esquemas de dados em TypeScript
+- **React Scroll** - Para navegação suave entre as seções da página
+- **Shadcn** - Biblioteca de componentes UI acessíveis e personalizáveis
+
+## Uso/Exemplos
+
+```javascript
+const checkIsFibonacci = useCallback((num: number): string => {
+  let a = 0;
+  let b = 1;
+  let next = 0;
+
+  while (next < num) {
+    next = a + b;
+    a = b;
+    b = next;
+  }
+
+  return next === num || num === 0
+    ? `"${num}" pertence à sequência de Fibonacci.`
+    : `"${num}" não pertence à sequência de Fibonacci.`;
+}, []);
+
+const handleCheck = useCallback(() => {
+  if (inputValue > 0) {
+    const resultMessage = checkIsFibonacci(inputValue);
+    setResult(resultMessage);
+    setCountdown(5);
+    setInputValue(0);
+
+    const clearResult = () => {
+      setResult("");
+    };
+
+    const updateCountdown = () => {
+      setCountdown((prev) => {
+        if (prev === 1) {
+          clearInterval(updateInterval);
+          clearResult();
+        }
+        return prev - 1;
+      });
+    };
+
+    const timeoutId = setTimeout(clearResult, 5000);
+    const updateInterval = setInterval(updateCountdown, 1000);
+
+    return () => {
+      clearTimeout(timeoutId);
+      clearInterval(updateInterval);
+    };
+  }
+}, [inputValue, checkIsFibonacci]);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contribuindo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Faça um `fork` do projeto.
+- Crie uma `nova branch`.
+- Faça `commit` das suas alterações.
+- Faça `push` para a branch.
+- Abra um `pull request`.
 
-## Learn More
+## Autores
 
-To learn more about Next.js, take a look at the following resources:
+- [@QuiLion7](https://www.github.com/QuiLion7)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](https://choosealicense.com/licenses/mit/)
